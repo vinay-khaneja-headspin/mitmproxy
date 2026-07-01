@@ -16,7 +16,7 @@ jobs:
         os: [macos-latest, ubuntu-latest] # windows-latest,
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6.0.2
         with:
           persist-credentials: false
           fetch-depth: 0
@@ -33,7 +33,7 @@ jobs:
       - name: Run tests (macos)
         if: matrix.os == 'macos-latest'
         run: tox -e py
-      - uses: codecov/codecov-action@v6
+      - uses: codecov/codecov-action@v6.0.1
         if: matrix.os == 'ubuntu-latest'
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
